@@ -4,7 +4,7 @@ import React from "react";
 export default function SearchBar() {
   return (
     <div className="search-bar">
-      <Search className="search-icon" fontSize="medium" />
+      <button className="search-btn">Search</button>
       <input type="text" placeholder="Search" />
     </div>
   );

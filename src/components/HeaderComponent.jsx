@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Language, ModeNight, Search } from "@mui/icons-material";
+import { Language, Menu, ModeNight, Search } from "@mui/icons-material";
 import LogoApp from "../outils/LogoApp";
 import { Box } from "@mui/material";
 import SearchBar from "../outils/SearchBar";
@@ -33,28 +33,40 @@ export default function HeaderComponent() {
               width: "100%",
             }}
           >
-            <SearchBar />
+            <SearchBar className="custom-icon" />
           </Box>
-          <div id="lang-selector" onClick={() => setIsClicked(!isClicked)}>
-            <Language />
-            <div
-              className="options"
-              style={{ display: isClicked ? "flex" : "none" }}
-            >
-              {languages.map((language, idx) => (
-                <span
-                  key={idx}
-                  onClick={() => handleSelect(language, idx)}
-                  className={isID == idx ? "selected" : ""}
-                >
-                  {language}
-                </span>
-              ))}
-            </div>
-          </div>
 
-          <div className="mode-selector">
-            <ModeNight className="custom-icon-mode" />
+          {/* nav bar icons */}
+          <div className="nav-bar-icons">
+            <div
+              id="lang-selector"
+              onClick={() => setIsClicked(!isClicked)}
+              className="nav-bar-icons-bg"
+            >
+              <Language className="custom-icon" />
+              <div
+                className="options nav-bar-icons-bg"
+                style={{ display: isClicked ? "flex" : "none" }}
+              >
+                {languages.map((language, idx) => (
+                  <span
+                    key={idx}
+                    onClick={() => handleSelect(language, idx)}
+                    className={isID == idx ? "selected" : ""}
+                  >
+                    {language}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div className="mode-selector nav-bar-icons-bg">
+              <ModeNight className="custom-icon" />
+            </div>
+
+            <div className="menu nav-bar-icons-bg">
+              <Menu className="custom-icon" />
+            </div>
           </div>
         </nav>
       </div>
