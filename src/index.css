@@ -204,8 +204,7 @@ body {
 /*======== side bar ========  */
 
 .side-bar {
-  max-width: 200px;
-  width: 100%;
+  width: 200px;
   position: sticky;
   top: 0;
   height: 100vh;
@@ -234,6 +233,7 @@ body {
   flex-direction: column;
   align-items: start;
   width: 100%;
+  margin-top: 1.5rem;
 }
 
 .nav-list-item {

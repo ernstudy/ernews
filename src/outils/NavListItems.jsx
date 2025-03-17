@@ -44,13 +44,16 @@ export default function NavListItems() {
           }
           onClick={() => handleActive(index)}
         >
-          <span
+          {/* nav list icons  */}
+          <div
             className={
               index == isID ? "custom-icon active-icon" : "custom-icon"
             }
           >
             {item.icon}
-          </span>
+          </div>
+
+          {/* nav list text  */}
           {item.text}
         </button>
       ))}

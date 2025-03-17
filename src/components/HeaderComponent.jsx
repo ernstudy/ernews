@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Language, Menu, ModeNight, Search } from "@mui/icons-material";
 import LogoApp from "../outils/LogoApp";
-import { Box } from "@mui/material";
+import { Box, Drawer } from "@mui/material";
 import SearchBar from "../outils/SearchBar";
+import SideBar from "./SideBar";
 
 export default function HeaderComponent() {
   const [isClicked, setIsClicked] = useState(false);
   const [isID, setIsID] = useState(null);
+  const [openMenu, setOpenMenu] = useState(false);
   const languages = ["English", "Spanish", "Frensh"];
 
   //   const select_lang = () => {
@@ -64,15 +66,30 @@ export default function HeaderComponent() {
               <ModeNight className="custom-icon" />
             </div>
 
-            <div className="menu nav-bar-icons-bg">
-              <Menu className="custom-icon" />
-            </div>
+            <Box sx={{ display: { xs: "block", md: "none" } }}>
+              <div
+                className="menu nav-bar-icons-bg"
+                onClick={() => setOpenMenu(true)}
+              >
+                <Menu className="custom-icon" />
+              </div>
+            </Box>
           </div>
         </nav>
       </div>
+
+      {/* search bar bottom  */}
       <Box sx={{ display: { xs: "block", sm: "none" } }}>
         <SearchBar />
       </Box>
+
+      <Drawer
+        open={openMenu}
+        onClose={() => setOpenMenu(!openMenu)}
+        sx={{ display: { xs: "flex", md: "none" } }}
+      >
+        <SideBar />
+      </Drawer>
     </header>
   );
 }
