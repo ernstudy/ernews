@@ -23,4 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 src/components/
-src/outils/
+# src/outils/LogoApp.jsx
+src/outils/NavListItems.jsx
+src/outils/SearchBar.jsx
