@@ -1,19 +1,25 @@
-import React from "react";
+import React, { useContext } from "react";
+import { NewsContext } from "../context/NewsContext";
 
-export default function BigCard() {
+export default function BigCard({ props }) {
+  const { news } = useContext(NewsContext);
+  const cardData = news[4];
+
+  const { showModal } = props;
+
+  const handleClick = () => {
+    showModal(cardData);
+  };
+
   return (
-    <div className="big_card">
-      <div className="big_card-image"></div>
+    <div className="big_card" onClick={handleClick}>
+      <div className="big_card-image">
+        <img src={cardData?.image} alt={cardData?.title} />
+      </div>
       <div className="big_card-title">
-        <h2>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam,
-          veniam!
-        </h2>
+        <h2>{cardData?.title}</h2>
         <div className="big_card-description">
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Et libero
-            aspernatur tenetur?
-          </p>
+          <p>{cardData?.description}</p>
         </div>
       </div>
     </div>
