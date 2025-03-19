@@ -1,23 +1,38 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Language, Menu, ModeNight, Search } from "@mui/icons-material";
 import LogoApp from "../outils/LogoApp";
 import { Box, Drawer } from "@mui/material";
 import SearchBar from "../outils/SearchBar";
 import SideBar from "./SideBar";
+import { NewsContext } from "../context/NewsContext";
 
 export default function HeaderComponent() {
+  const { setUserPreferences } = useContext(NewsContext);
+
   const [isClicked, setIsClicked] = useState(false);
   const [isID, setIsID] = useState(null);
   const [openMenu, setOpenMenu] = useState(false);
-  const languages = ["English", "Spanish", "Frensh"];
 
-  //   const select_lang = () => {
-  //     setIsClicked(true);
-  //   };
+  // language
+  const languages = [
+    { name: "English", code: "en" },
+    { name: "Spanish", code: "es" },
+    { name: "French", code: "fr" },
+    { name: "German", code: "de" },
+    { name: "Italian", code: "it" },
+    { name: "Japanese", code: "ja" },
+    { name: "Chinese", code: "zh" },
+    { name: "Arabic", code: "ar" },
+    { name: "Russian", code: "ru" },
+    { name: "Portuguese", code: "pt" },
+  ];
 
-  const handleSelect = (language, idx) => {
+  const selectLanguage = (language, idx) => {
     setIsID(idx);
+
+    // define language
     console.log("The selected language is:", language);
+    setUserPreferences((prevPref) => ({ ...prevPref, language: language }));
   };
 
   return (
@@ -53,10 +68,10 @@ export default function HeaderComponent() {
                 {languages.map((language, idx) => (
                   <span
                     key={idx}
-                    onClick={() => handleSelect(language, idx)}
+                    onClick={() => selectLanguage(language.code, idx)}
                     className={isID == idx ? "selected" : ""}
                   >
-                    {language}
+                    {language.name}
                   </span>
                 ))}
               </div>
