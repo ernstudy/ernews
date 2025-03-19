@@ -1,56 +1,96 @@
 import {
+  Airplay,
+  Business,
+  Cast,
+  HealthAndSafety,
   Home,
+  NotificationAdd,
+  Notifications,
+  NotificationsNone,
+  PeopleAlt,
   Policy,
   Public,
   School,
+  Science,
+  SportsEsports,
   SportsHandball,
 } from "@mui/icons-material";
 
 import React, { useContext, useState } from "react";
 import { NewsContext } from "../context/NewsContext";
 
-export default function NavListItems() {
-  const { setUserPreferences } = useContext(NewsContext);
+export default function NavListItems({ setOpenMenu }) {
+  const { userPreferences, setUserPreferences } = useContext(NewsContext);
   const [activeItem, setActiveItem] = useState(false);
   const [isID, setIsID] = useState(null);
-
-  const handleClick = (e, index) => {
-    const text = e.target.textContent.toLowerCase();
-    console.log(text);
-    // update user preferences
-    setUserPreferences((prevPref) => ({ ...prevPref, category: text }));
-
-    // activeItem button
-    setActiveItem(!activeItem);
-    setIsID(index);
-  };
 
   // nav list items
   const listItems = [
     {
       text: "General",
-      icon: <Home />,
+      icon: <Notifications />,
     },
     {
-      text: "Education",
-      icon: <School />,
-    },
-    {
-      text: "Sport",
+      text: "Sports",
       icon: <SportsHandball />,
     },
+
     {
       text: "World",
       icon: <Public />,
     },
+    {
+      text: "Business",
+      icon: <Business />,
+    },
+    {
+      text: "Nation",
+      icon: <PeopleAlt />,
+    },
+    {
+      text: "Entertainment",
+      icon: <SportsEsports />,
+    },
+    {
+      text: "Technology",
+      icon: <Cast />,
+    },
+    {
+      text: "Health",
+      icon: <HealthAndSafety />,
+    },
+    {
+      text: "Science",
+      icon: <Science />,
+    },
   ];
+
+  const handleClick = (e, index) => {
+    const text = e.target.textContent.toLowerCase();
+    console.log(text);
+    // update user preferences
+    setUserPreferences((prevPref) => ({
+      ...prevPref,
+      category: text,
+      query: "",
+    }));
+
+    // activeItem button
+    setActiveItem(!activeItem);
+    setIsID(index);
+
+    // hide menu
+    setOpenMenu(false);
+  };
 
   return (
     <>
       {listItems.map((item, index) => (
         <button
           className={
-            index == isID ? "nav-list-item active-item" : "nav-list-item"
+            index == isID || userPreferences.category == item.text.toLowerCase()
+              ? "nav-list-item active-item"
+              : "nav-list-item"
           }
           onClick={(e) => handleClick(e, index)}
           key={index}
