@@ -1,13 +1,32 @@
-import React from "react";
+import React, { useContext } from "react";
+import { NewsContext } from "../context/NewsContext";
 
 export default function VerticalCard({ props }) {
-  // const { showModal } = props;
+  const { news } = useContext(NewsContext);
+
+  const selectedData = news.slice(1, 4);
+
+  const { showModal } = props;
+
+  const handleClick = (data) => {
+    showModal(data);
+  };
   return (
-    <div className="vertical_cards" onClick={() => showModal()}>
-      <div className="vertical_cards-image"></div>
-      <div className="vertical_cards-title">
-        <h2>Lorem ipsum dolor sit amet, consectetur adipisicing.</h2>
-      </div>
-    </div>
+    <>
+      {selectedData.map((data, idx) => (
+        <div
+          className="vertical_cards"
+          onClick={() => handleClick(data)}
+          key={idx}
+        >
+          <div className="vertical_cards-image">
+            <img src={data.image} alt={data.title} />
+          </div>
+          <div className="vertical_cards-title">
+            <h2>{data.title}</h2>
+          </div>
+        </div>
+      ))}
+    </>
   );
 }
