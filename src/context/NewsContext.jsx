@@ -5,8 +5,9 @@ export const NewsContext = createContext();
 export const NewsProvider = ({ children }) => {
   const [news, setNews] = useState([]);
   const [userPreferences, setUserPreferences] = useState({
-    language: "",
-    category: "",
+    language: "en",
+    category: "general",
+    query: "",
   });
 
   return (
