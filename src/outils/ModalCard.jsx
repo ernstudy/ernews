@@ -2,7 +2,7 @@ import { Close, Launch } from "@mui/icons-material";
 import React from "react";
 
 export default function ModalCard({ props }) {
-  const { openModal, setOpenModal } = props;
+  const { openModal, setOpenModal, modalData } = props;
 
   const closeModal = () => {
     document.body.style.overflow = "auto";
@@ -14,20 +14,15 @@ export default function ModalCard({ props }) {
         <div className="modal-close" onClick={closeModal}>
           <Close className="modal-close-icon" />
         </div>
-        <div className="modal-image"></div>
+        <div className="modal-image">
+          <img src={modalData?.image} alt={modalData?.title} />
+        </div>
 
         <div className="modal-title">
-          <h2>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti,
-            necessitatibus.
-          </h2>
+          <h2>{modalData?.title}</h2>
         </div>
         <div className="modal-description">
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo
-            perferendis soluta laboriosam unde hic et deserunt exercitationem ut
-            suscipit quae?
-          </p>
+          <p>{modalData?.description}</p>
         </div>
         <div className="modal-button">
           <button>
