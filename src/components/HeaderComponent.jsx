@@ -103,7 +103,7 @@ export default function HeaderComponent() {
         onClose={() => setOpenMenu(!openMenu)}
         sx={{ display: { xs: "flex", md: "none" } }}
       >
-        <SideBar />
+        <SideBar setOpenMenu={setOpenMenu} />
       </Drawer>
     </header>
   );
