@@ -1,15 +1,28 @@
-import React from "react";
+import React, { useContext } from "react";
+import { NewsContext } from "../context/NewsContext";
 
-export default function SmallCard() {
+export default function SmallCard({ props }) {
+  const { news } = useContext(NewsContext);
+  const cardData = news.slice(5, 8);
+
+  const { showModal } = props;
+
+  const handleClick = (data) => {
+    showModal(data);
+  };
+
   return (
-    <div className="small_card">
-      <div className="small_card-image"></div>
-      <div className="small_card-title">
-        <h2>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo,
-          rem.
-        </h2>
-      </div>
-    </div>
+    <>
+      {cardData.map((data, idx) => (
+        <div className="small_card" key={idx} onClick={() => handleClick(data)}>
+          <div className="small_card-image">
+            <img src={data?.image} alt={data?.title} />
+          </div>
+          <div className="small_card-title">
+            <h2>{data?.title}</h2>
+          </div>
+        </div>
+      ))}
+    </>
   );
 }
