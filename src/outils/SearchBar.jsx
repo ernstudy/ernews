@@ -11,7 +11,11 @@ export default function SearchBar() {
   };
 
   const handleSubmit = () => {
-    setUserPreferences((prevPref) => ({ ...prevPref, query: value }));
+    setUserPreferences((prevPref) => ({
+      ...prevPref,
+      query: value,
+      category: "general",
+    }));
   };
 
   return (
