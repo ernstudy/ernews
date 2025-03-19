@@ -474,7 +474,106 @@ section h3 {
   margin-top: 0.3rem;
 }
 
-/* ======= card sections ======= */
+/* ===== Modal component ======= */
+
+.modal {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: #000000d6;
+  z-index: 999;
+  padding: 12px;
+  display: none;
+}
+
+.modal.show-modal {
+  display: block;
+}
+
+.modal-container {
+  max-width: 700px;
+  width: 100%;
+  background-color: var(--color-background);
+  padding: 0 0 2rem 0;
+  height: 95%;
+  border-radius: 12px;
+  margin: 0 auto;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.modal-image {
+  width: 100%;
+  background-color: var(--color-background-sidebar);
+  height: 300px;
+}
+
+.modal-title {
+  padding: 0 8px;
+}
+
+.modal-title h2 {
+  font-size: var(--font-size-small-title);
+  color: var(--color-small-title);
+  margin-top: 1rem;
+}
+
+.modal-description {
+  font-size: var(--font-size-text);
+  color: var(--color-text);
+  margin-top: 0.3rem;
+  padding: 0 8px;
+}
+
+.modal-button {
+  padding: 0 8px;
+}
+
+.modal-button button {
+  border: none;
+  font-size: var(--font-size-item);
+  background-color: var(--color-main);
+  color: var(--color-gray-100);
+  padding: 8px;
+  border-radius: 5px;
+  margin-top: 12px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.modal-button button:active {
+  transform: scale(1.1);
+}
+
+.modal-button button:hover {
+  text-decoration: underline;
+}
+
+.modal-close {
+  float: right;
+  background-color: var(--color-gray-200);
+  width: max-content;
+  border-radius: 8px;
+  margin: 12px;
+  padding: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.modal-close:hover {
+  background-color: var(--color-gray-300);
+}
+
+.modal-close:active {
+  transform: scale(1.1);
+}
+
+.modal-close-icon {
+  color: var(--color-gray-900);
+}
 
 /*======== responsive mobile ========*/
 @media (max-width: 900px) {
