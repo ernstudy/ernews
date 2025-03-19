@@ -5,17 +5,27 @@ import {
   School,
   SportsHandball,
 } from "@mui/icons-material";
-import { Button, IconButton } from "@mui/material";
-import React, { useState } from "react";
+
+import React, { useContext, useState } from "react";
+import { NewsContext } from "../context/NewsContext";
 
 export default function NavListItems() {
+  const { setUserPreferences } = useContext(NewsContext);
   const [activeItem, setActiveItem] = useState(false);
   const [isID, setIsID] = useState(null);
 
-  const handleActive = (index) => {
+  const handleClick = (e, index) => {
+    const text = e.target.textContent.toLowerCase();
+    console.log(text);
+    // update user preferences
+    setUserPreferences((prevPref) => ({ ...prevPref, category: text }));
+
+    // activeItem button
     setActiveItem(!activeItem);
     setIsID(index);
   };
+
+  // nav list items
   const listItems = [
     {
       text: "General",
@@ -42,7 +52,8 @@ export default function NavListItems() {
           className={
             index == isID ? "nav-list-item active-item" : "nav-list-item"
           }
-          onClick={() => handleActive(index)}
+          onClick={(e) => handleClick(e, index)}
+          key={index}
         >
           {/* nav list icons  */}
           <div
