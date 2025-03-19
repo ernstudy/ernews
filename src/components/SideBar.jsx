@@ -3,12 +3,12 @@ import React from "react";
 import NavListItems from "../outils/NavListItems";
 import LogoApp from "../outils/LogoApp";
 
-export default function SideBar() {
+export default function SideBar({ setOpenMenu }) {
   return (
     <div className="side-bar">
       <LogoApp />
       <div className="nav-list">
-        <NavListItems />
+        <NavListItems setOpenMenu={setOpenMenu} />
       </div>
     </div>
   );
