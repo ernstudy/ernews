@@ -1,20 +1,27 @@
 import { Container } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 import HeaderComponent from "./HeaderComponent";
 import HorizontalCard from "../outils/HorizontalCard";
 import BigCard from "../outils/BigCard";
 import SmallCard from "../outils/SmallCard";
 import VerticalCard from "../outils/VerticalCard";
 import MainCard from "../outils/MainCard";
+import ModalCard from "../outils/ModalCard";
 
 export default function HomePage() {
+  // modal fonctionallity
+  const [openModal, setOpenModal] = useState(false);
+  const showModal = () => {
+    setOpenModal(!openModal);
+    document.body.style.overflow = "hidden";
+  };
   return (
     <Container maxWidth="md">
       <HeaderComponent />
 
       {/* main card component  */}
       <section className="main_card_section">
-        <MainCard />
+        <MainCard props={{ showModal }} />
       </section>
 
       {/* Vertical card component */}
@@ -23,7 +30,7 @@ export default function HomePage() {
           <h3>For you</h3>
         </div>
         <div className="vertical_card_container">
-          <VerticalCard />
+          <VerticalCard props={{ showModal }} />
           <VerticalCard />
           <VerticalCard />
         </div>
@@ -38,7 +45,7 @@ export default function HomePage() {
         <div className="big_small_card_container">
           <BigCard />
           <div className="small_card_container">
-            <SmallCard />
+            <SmallCard props={{ showModal }} />
             <SmallCard />
             <SmallCard />
           </div>
@@ -51,10 +58,13 @@ export default function HomePage() {
           <h3>More news</h3>
         </div>
         <div className="horizontal_card_container">
-          <HorizontalCard />
+          <HorizontalCard props={{ showModal }} />
           <HorizontalCard />
         </div>
       </section>
+
+      {/* modal component  */}
+      <ModalCard props={{ openModal, setOpenModal }} />
     </Container>
   );
 }
