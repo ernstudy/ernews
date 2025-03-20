@@ -646,6 +646,38 @@ section h3 {
   color: var(--color-gray-900);
 }
 
+/* ====== FOOTER ======= */
+
+.footer {
+  padding: 16px 0;
+  width: 100%;
+  margin-top: 2rem;
+}
+
+.footer .copy-right {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer .copy-right h4 {
+  color: var(--color-text);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.footer .copy-right a {
+  color: var(--color-small-title);
+  font-weight: 700;
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+.footer .copy-right a:hover {
+  text-decoration: underline;
+}
+
 /*======== responsive mobile ========*/
 @media (max-width: 900px) {
   .container-all {

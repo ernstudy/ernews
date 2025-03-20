@@ -36,11 +36,15 @@ export default function App() {
   };
   return (
     <div className="container-all">
+      {/* Side bar  */}
       <Box sx={{ display: { xs: "none", md: "block" } }}>
         <SideBar />
       </Box>
 
-      <HomePage />
+      <>
+        {/* Home page */}
+        <HomePage />
+      </>
     </div>
   );
 }
