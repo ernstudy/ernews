@@ -11,6 +11,8 @@ export default function SearchBar() {
   };
 
   const handleSubmit = () => {
+    if (!value.trim()) return;
+
     setUserPreferences((prevPref) => ({
       ...prevPref,
       query: value,
