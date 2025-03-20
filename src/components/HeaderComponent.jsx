@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Language, Menu, ModeNight, Search } from "@mui/icons-material";
+import { ArrowDropDown, Menu, ModeNight, Search } from "@mui/icons-material";
 import LogoApp from "../outils/LogoApp";
 import { Box, Drawer } from "@mui/material";
 import SearchBar from "../outils/SearchBar";
@@ -7,7 +7,7 @@ import SideBar from "./SideBar";
 import { NewsContext } from "../context/NewsContext";
 
 export default function HeaderComponent() {
-  const { setUserPreferences } = useContext(NewsContext);
+  const { userPreferences, setUserPreferences } = useContext(NewsContext);
 
   const [isClicked, setIsClicked] = useState(false);
   const [isID, setIsID] = useState(null);
@@ -55,12 +55,12 @@ export default function HeaderComponent() {
 
           {/* nav bar icons */}
           <div className="nav-bar-icons">
-            <div
-              id="lang-selector"
-              onClick={() => setIsClicked(!isClicked)}
-              className="nav-bar-icons-bg"
-            >
-              <Language className="custom-icon" />
+            <div id="lang-selector" onClick={() => setIsClicked(!isClicked)}>
+              <div className="nav-bar-lang">
+                {userPreferences.language}
+                <ArrowDropDown className="custom-icon-down" />
+              </div>
+
               <div
                 className="options nav-bar-icons-bg"
                 style={{ display: isClicked ? "flex" : "none" }}
@@ -69,7 +69,11 @@ export default function HeaderComponent() {
                   <span
                     key={idx}
                     onClick={() => selectLanguage(language.code, idx)}
-                    className={isID == idx ? "selected" : ""}
+                    className={
+                      isID == idx || userPreferences.language == language.code
+                        ? "selected"
+                        : ""
+                    }
                   >
                     {language.name}
                   </span>
