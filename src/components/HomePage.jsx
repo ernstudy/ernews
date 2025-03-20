@@ -1,5 +1,5 @@
 import { Container } from "@mui/material";
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import HeaderComponent from "./HeaderComponent";
 import HorizontalCard from "../outils/HorizontalCard";
 import BigCard from "../outils/BigCard";
@@ -7,6 +7,7 @@ import SmallCard from "../outils/SmallCard";
 import VerticalCard from "../outils/VerticalCard";
 import MainCard from "../outils/MainCard";
 import ModalCard from "../outils/ModalCard";
+import FooterComponent from "./FooterComponent";
 
 export default function HomePage() {
   // modal data
@@ -66,6 +67,11 @@ export default function HomePage() {
 
       {/* modal component  */}
       <ModalCard props={{ openModal, setOpenModal, modalData }} />
+
+      {/* footer component */}
+      <>
+        <FooterComponent />
+      </>
     </Container>
   );
 }
