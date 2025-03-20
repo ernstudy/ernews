@@ -27,7 +27,7 @@ export default function SearchBar() {
       </button>
       <input
         type="text"
-        placeholder="Search"
+        placeholder="Search for the latest news"
         value={value}
         onChange={(e) => handleChange(e.target.value)}
         onKeyDown={(e) => {
