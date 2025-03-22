@@ -19,7 +19,14 @@ export default function MainCard({ props }) {
     >
       <span className="tag-name">Featured</span>
       <div className="main_card-title">
-        <h2>{mainCardData?.title}</h2>
+        {mainCardData ? (
+          <h2>{mainCardData?.title}</h2>
+        ) : (
+          <h2>
+            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti
+            ducimus earum iusto itaque tempora!
+          </h2>
+        )}
       </div>
     </div>
   );

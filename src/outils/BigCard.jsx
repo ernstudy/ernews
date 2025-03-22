@@ -17,9 +17,23 @@ export default function BigCard({ props }) {
         <img src={cardData?.image} alt={cardData?.title} />
       </div>
       <div className="big_card-title">
-        <h2>{cardData?.title}</h2>
+        {cardData ? (
+          <h2>{cardData?.title}</h2>
+        ) : (
+          <h2>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia,
+            pariatur.
+          </h2>
+        )}
         <div className="big_card-description">
-          <p>{cardData?.description}</p>
+          {cardData ? (
+            <p>{cardData?.description}</p>
+          ) : (
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Architecto fuga assumenda incidunt aperiam non!
+            </p>
+          )}
         </div>
       </div>
     </div>

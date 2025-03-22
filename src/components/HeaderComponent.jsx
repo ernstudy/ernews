@@ -1,5 +1,18 @@
 import React, { useContext, useState } from "react";
-import { ArrowDropDown, Menu, ModeNight, Search } from "@mui/icons-material";
+import {
+  ArrowDropDown,
+  LightMode,
+  Menu,
+  ModeEdit,
+  ModeFanOff,
+  ModeNight,
+  ModeNightOutlined,
+  ModeNightRounded,
+  ModeNightSharp,
+  ModeNightTwoTone,
+  Nightlight,
+  Search,
+} from "@mui/icons-material";
 import LogoApp from "../outils/LogoApp";
 import { Box, Drawer } from "@mui/material";
 import SearchBar from "../outils/SearchBar";
@@ -7,7 +20,8 @@ import SideBar from "./SideBar";
 import { NewsContext } from "../context/NewsContext";
 
 export default function HeaderComponent() {
-  const { userPreferences, setUserPreferences } = useContext(NewsContext);
+  const { userPreferences, setUserPreferences, theme, toggleTheme } =
+    useContext(NewsContext);
 
   const [isClicked, setIsClicked] = useState(false);
   const [isID, setIsID] = useState(null);
@@ -50,19 +64,19 @@ export default function HeaderComponent() {
               width: "100%",
             }}
           >
-            <SearchBar className="custom-icon" />
+            <SearchBar />
           </Box>
 
           {/* nav bar icons */}
-          <div className="nav-bar-icons">
+          <div className="navbar_icons">
             <div id="lang-selector" onClick={() => setIsClicked(!isClicked)}>
-              <div className="nav-bar-lang">
+              <div className="lang-selector-item navbar_icons-box">
                 {userPreferences.language}
-                <ArrowDropDown className="custom-icon-down" />
+                <ArrowDropDown className="navbar_icons-box-icon" />
               </div>
 
               <div
-                className="options nav-bar-icons-bg"
+                className="options"
                 style={{ display: isClicked ? "flex" : "none" }}
               >
                 {languages.map((language, idx) => (
@@ -81,16 +95,25 @@ export default function HeaderComponent() {
               </div>
             </div>
 
-            <div className="mode-selector nav-bar-icons-bg">
-              <ModeNight className="custom-icon" />
+            {/* mode theme  */}
+            <div
+              className="mode_selector navbar_icons-box"
+              onClick={toggleTheme}
+            >
+              {theme == "light" ? (
+                <ModeNightSharp className="navbar_icons-box-icon" />
+              ) : (
+                <LightMode className="navbar_icons-box-icon" />
+              )}
             </div>
 
+            {/* menu  */}
             <Box sx={{ display: { xs: "block", md: "none" } }}>
               <div
-                className="menu nav-bar-icons-bg"
+                className="menu navbar_icons-box"
                 onClick={() => setOpenMenu(true)}
               >
-                <Menu className="custom-icon" />
+                <Menu className="navbar_icons-box-icon" />
               </div>
             </Box>
           </div>
