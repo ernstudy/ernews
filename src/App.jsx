@@ -16,7 +16,7 @@ export default function App() {
   )}&max=10&apikey=${API_KEY}`;
 
   useEffect(() => {
-    // fetchNews();
+    fetchNews();
     console.log(userPreferences);
     console.log("url", API_URL);
   }, [userPreferences]);
