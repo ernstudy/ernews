@@ -1,5 +1,5 @@
 import React from "react";
-import CopyRIght from "../outils/CopyRIght";
+import CopyRIght from "./ui/CopyRIght";
 
 export default function FooterComponent() {
   return (

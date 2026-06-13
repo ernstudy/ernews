@@ -1,6 +1,6 @@
 import { Search } from "@mui/icons-material";
 import React, { useContext, useState } from "react";
-import { NewsContext } from "../context/NewsContext";
+import { NewsContext } from "../../context/NewsContext";
 
 export default function SearchBar() {
   const { setUserPreferences } = useContext(NewsContext);

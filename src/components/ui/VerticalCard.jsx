@@ -1,11 +1,9 @@
 import React, { useContext } from "react";
-import { NewsContext } from "../context/NewsContext";
+import { NewsContext } from "../../context/NewsContext";
 
 export default function VerticalCard({ props }) {
   const { news } = useContext(NewsContext);
-
   const selectedData = news.slice(1, 4);
-
   const { showModal } = props;
 
   const handleClick = (data) => {

@@ -1,12 +1,12 @@
 import { Container } from "@mui/material";
 import React, { useState } from "react";
 import HeaderComponent from "./HeaderComponent";
-import HorizontalCard from "../outils/HorizontalCard";
-import BigCard from "../outils/BigCard";
-import SmallCard from "../outils/SmallCard";
-import VerticalCard from "../outils/VerticalCard";
-import MainCard from "../outils/MainCard";
-import ModalCard from "../outils/ModalCard";
+import HorizontalCard from "./ui/HorizontalCard";
+import BigCard from "./ui/BigCard";
+import SmallCard from "./ui/SmallCard";
+import VerticalCard from "./ui/VerticalCard";
+import MainCard from "./ui/MainCard";
+import ModalCard from "./ui/ModalCard";
 import FooterComponent from "./FooterComponent";
 
 export default function HomePage() {

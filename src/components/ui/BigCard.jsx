@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { NewsContext } from "../context/NewsContext";
+import { NewsContext } from "../../context/NewsContext";
 
 export default function BigCard({ props }) {
   const { news } = useContext(NewsContext);

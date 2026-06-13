@@ -1,7 +1,7 @@
 import { Box } from "@mui/material";
 import React from "react";
-import NavListItems from "../outils/NavListItems";
-import LogoApp from "../outils/LogoApp";
+import NavListItems from "./ui/NavListItems";
+import LogoApp from "./ui/LogoApp";
 
 export default function SideBar({ setOpenMenu }) {
   return (
