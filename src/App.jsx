@@ -24,7 +24,7 @@ export default function App() {
               alignContent: "center",
               justifyContent: "center",
               width: "100%",
-              height: "100vh",
+              height: "100%",
             }}
           >
             <CircularProgress sx={{ margin: "auto" }} />

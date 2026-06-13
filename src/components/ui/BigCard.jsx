@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import { NewsContext } from "../../context/NewsContext";
+import ImageNotFound from "./image-notfound/ImageNotFound";
+import { noAvailableData } from "../../utils/no-available-data";
 
 export default function BigCard({ props }) {
   const { news } = useContext(NewsContext);
@@ -14,25 +16,26 @@ export default function BigCard({ props }) {
   return (
     <div className="big_card" onClick={handleClick}>
       <div className="big_card-image">
-        <img src={cardData?.image} alt={cardData?.title} />
+        {cardData ? (
+          <img
+            src={cardData?.image}
+            alt={cardData?.title ?? noAvailableData.label}
+          />
+        ) : (
+          <ImageNotFound />
+        )}
       </div>
       <div className="big_card-title">
         {cardData ? (
           <h2>{cardData?.title}</h2>
         ) : (
-          <h2>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia,
-            pariatur.
-          </h2>
+          <h2>{noAvailableData.title}</h2>
         )}
         <div className="big_card-description">
           {cardData ? (
             <p>{cardData?.description}</p>
           ) : (
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Architecto fuga assumenda incidunt aperiam non!
-            </p>
+            <p>{noAvailableData.description}</p>
           )}
         </div>
       </div>
