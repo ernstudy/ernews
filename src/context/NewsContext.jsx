@@ -26,9 +26,11 @@ export const NewsProvider = ({ children }) => {
       init();
     }
 
-    setTimeout(() => {
-      setLoadingData(false);
-    }, 2000);
+    if (loadingData) {
+      setTimeout(() => {
+        setLoadingData(false);
+      }, 2000);
+    }
   }, [loadingData, userPreferences]);
 
   const init = async () => {
