@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import { NewsContext } from "../../context/NewsContext";
+import ImageNotFound from "./image-notfound/ImageNotFound";
+import { noAvailableData } from "../../utils/no-available-data";
 
 export default function HorizontalCard({ props }) {
   const { news } = useContext(NewsContext);
@@ -21,10 +23,13 @@ export default function HorizontalCard({ props }) {
           key={idx}
         >
           <div className="horizontal_card-image">
-            <img src={data?.image} alt={data?.title} />
+            <img
+              src={data?.image || noAvailableData.image}
+              alt={data?.title || noAvailableData.title}
+            />
           </div>
           <div className="horizontal_card-title">
-            <h2>{data?.title}</h2>
+            <h2>{data?.title || noAvailableData.title}</h2>
           </div>
         </div>
       ))}

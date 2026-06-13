@@ -1,5 +1,7 @@
 import { ArrowOutward, Close, Launch } from "@mui/icons-material";
 import React from "react";
+import ImageNotFound from "./image-notfound/ImageNotFound";
+import { noAvailableData } from "../../utils/no-available-data";
 
 export default function ModalCard({ props }) {
   const { openModal, setOpenModal, modalData } = props;
@@ -12,7 +14,7 @@ export default function ModalCard({ props }) {
       year: "numeric",
       hour: "2-digit",
       minute: "2-digit",
-    }
+    },
   );
 
   const closeModal = () => {
@@ -26,19 +28,22 @@ export default function ModalCard({ props }) {
           <Close className="modal-close-icon" />
         </div>
         <div className="modal-image">
-          <img src={modalData?.image} alt={modalData?.title} />
+          <img
+            src={modalData?.image ?? noAvailableData.image}
+            alt={modalData?.title}
+          />
         </div>
 
         <div className="modal-title">
-          <h2>{modalData?.title || "Title"}</h2>
+          <h2>{modalData?.title || noAvailableData.title}</h2>
         </div>
 
         <div className="modal-source">
-          <span>Source: {modalData.source?.name}</span>
+          <span>Source: {modalData.source?.name || noAvailableData.autor}</span>
           {/* <span>{modalData?.publishedAt}</span> */}
         </div>
         <div className="modal-description">
-          <p>{modalData?.content || "Description"}</p>
+          <p>{modalData?.content || noAvailableData.description}</p>
         </div>
         <div className="modal-button">
           <a href={modalData?.url} target="_blank" rel="noopener noreferrer">
