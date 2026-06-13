@@ -1,8 +1,11 @@
-import { useContext, createContext, useState, useEffect } from "react";
+import { useContext, createContext, useState, useEffect, useRef } from "react";
+import { envConfig } from "../config/env.config.js";
+import { fetchNews } from "../libs/api.js";
 
 export const NewsContext = createContext();
 
 export const NewsProvider = ({ children }) => {
+  const didRun = useRef(false);
   const [news, setNews] = useState([]);
   const [userPreferences, setUserPreferences] = useState({
     language: "en",
@@ -10,6 +13,36 @@ export const NewsProvider = ({ children }) => {
     query: "",
   });
 
+  const [loadingData, setLoadingData] = useState(true);
+
+  const url = `${envConfig.apiBaseUrl}/top-headlines?category=${
+    userPreferences.category
+  }&lang=${userPreferences.language}&q=${encodeURIComponent(
+    userPreferences.query,
+  )}&max=10&apikey=${envConfig.apiKey}`;
+
+  useEffect(() => {
+    if (!loadingData) {
+      init();
+    }
+
+    setTimeout(() => {
+      setLoadingData(false);
+    }, 2000);
+  }, [loadingData, userPreferences]);
+
+  const init = async () => {
+    try {
+      // fetch news
+      const newsData = await fetchNews(url);
+
+      setNews(newsData?.articles ?? []);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  // light dark mode
   const [theme, setTheme] = useState(() => {
     return localStorage.getItem("theme" || "light");
   });
@@ -30,6 +63,7 @@ export const NewsProvider = ({ children }) => {
       value={{
         news,
         setNews,
+        loadingData,
         userPreferences,
         setUserPreferences,
         theme,

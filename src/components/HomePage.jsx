@@ -18,6 +18,7 @@ export default function HomePage() {
     setOpenModal(!openModal);
     document.body.style.overflow = "hidden";
 
+    if (!cardData) return setModalData([]);
     // modal data
     setModalData(cardData);
     console.log("card data:", cardData);
