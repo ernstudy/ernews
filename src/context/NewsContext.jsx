@@ -15,32 +15,31 @@ export const NewsProvider = ({ children }) => {
 
   const [loadingData, setLoadingData] = useState(true);
 
-  const url = `${envConfig.apiBaseUrl}/top-headlines?category=${
-    userPreferences.category
-  }&lang=${userPreferences.language}&q=${encodeURIComponent(
-    userPreferences.query,
-  )}&max=10&apikey=${envConfig.apiKey}`;
-
   useEffect(() => {
     if (!loadingData) {
-      init();
+      fetchNewsData();
     }
 
     if (loadingData) {
-      setTimeout(() => {
+      const timer = setTimeout(() => {
         setLoadingData(false);
       }, 2000);
+      return () => clearTimeout(timer);
     }
   }, [loadingData, userPreferences]);
 
-  const init = async () => {
+  const fetchNewsData = async () => {
     try {
-      // fetch news
-      const newsData = await fetchNews(url);
-
+      const newsData = await fetchNews(
+        userPreferences.category,
+        userPreferences.language,
+        userPreferences.query,
+        10,
+      );
       setNews(newsData);
     } catch (error) {
-      console.log("error to fetch data", error);
+      console.error("Error fetching news:", error);
+      setNews([]);
     }
   };
 
