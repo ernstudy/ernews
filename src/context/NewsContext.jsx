@@ -38,9 +38,9 @@ export const NewsProvider = ({ children }) => {
       // fetch news
       const newsData = await fetchNews(url);
 
-      setNews(newsData?.articles ?? []);
+      setNews(newsData);
     } catch (error) {
-      console.log(error);
+      console.log("error to fetch data", error);
     }
   };
 
