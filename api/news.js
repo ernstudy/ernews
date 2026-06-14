@@ -18,7 +18,7 @@ export default async function handler(req, res) {
       return res.status(response.status).json(data);
     }
 
-    res.setHeader("Cache-Control", "max-age=300"); // Cache por 5 minutos
+    res.setHeader("Cache-Control", "max-age=300");
     return res.status(200).json(data);
   } catch (error) {
     console.error("Error fetching news:", error);
