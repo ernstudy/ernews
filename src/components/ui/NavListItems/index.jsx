@@ -16,7 +16,8 @@ import {
   SportsHandball,
 } from "@mui/icons-material";
 import React, { useContext, useState } from "react";
-import { NewsContext } from "../../context/NewsContext";
+import { NewsContext } from "../../../context/NewsContext";
+import styles from "./NavListItems.module.css";
 
 export default function NavListItems({ setOpenMenu }) {
   const { userPreferences, setUserPreferences } = useContext(NewsContext);
@@ -88,8 +89,8 @@ export default function NavListItems({ setOpenMenu }) {
         <button
           className={
             index == isID || userPreferences.category == item.text.toLowerCase()
-              ? "nav-list-item active-item"
-              : "nav-list-item"
+              ? `${styles.item} ${styles.active}`
+              : styles.item
           }
           onClick={(e) => handleClick(e, index)}
           key={index}
@@ -97,7 +98,9 @@ export default function NavListItems({ setOpenMenu }) {
           {/* nav list icons  */}
           <div
             className={
-              index == isID ? "custom-icon active-icon" : "custom-icon"
+              index == isID
+                ? `${styles.icon} ${styles.activeIcon}`
+                : styles.icon
             }
           >
             {item.icon}

@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
-import { NewsContext } from "../../context/NewsContext";
-import ImageNotFound from "./image-notfound/ImageNotFound";
-import { noAvailableData } from "../../utils/no-available-data";
+import { NewsContext } from "../../../context/NewsContext";
+import ImageNotFound from "../image-notfound/ImageNotFound";
+import { noAvailableData } from "../../../utils/no-available-data";
+import styles from "./HorizontalCard.module.css";
 
 export default function HorizontalCard({ props }) {
   const { news } = useContext(NewsContext);
@@ -18,17 +19,17 @@ export default function HorizontalCard({ props }) {
     <>
       {selectedData.map((data, idx) => (
         <div
-          className="horizontal_card"
+          className={styles.root}
           onClick={() => handleClick(data)}
           key={idx}
         >
-          <div className="horizontal_card-image">
+          <div className={styles.img}>
             <img
               src={data?.image || noAvailableData.image}
               alt={data?.title || noAvailableData.title}
             />
           </div>
-          <div className="horizontal_card-title">
+          <div className={styles.title}>
             <h2>{data?.title || noAvailableData.title}</h2>
           </div>
         </div>

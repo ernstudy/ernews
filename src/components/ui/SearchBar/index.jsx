@@ -1,6 +1,7 @@
 import { Search } from "@mui/icons-material";
 import React, { useContext, useState } from "react";
-import { NewsContext } from "../../context/NewsContext";
+import { NewsContext } from "../../../context/NewsContext";
+import styles from "./SearchBar.module.css";
 
 export default function SearchBar() {
   const { setUserPreferences } = useContext(NewsContext);
@@ -21,8 +22,8 @@ export default function SearchBar() {
   };
 
   return (
-    <div className="search-bar">
-      <button className="search-btn" onClick={handleSubmit}>
+    <div className={styles.root}>
+      <button className={styles.btn} onClick={handleSubmit}>
         Search
       </button>
       <input

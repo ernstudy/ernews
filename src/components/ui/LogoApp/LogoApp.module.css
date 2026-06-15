@@ -1,0 +1,17 @@
+.root {
+  color: var(--color-main);
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+.root h1 {
+  font-size: var(--font-size-logo);
+  margin-left: 8px;
+  color: var(--color-main);
+}
+
+.icon {
+  font-size: var(--font-size-logo);
+  color: var(--color-main);
+}

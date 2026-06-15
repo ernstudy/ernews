@@ -1,0 +1,41 @@
+.root {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  cursor: pointer;
+  gap: 1rem;
+}
+
+.img {
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.img img {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+
+.title h2 {
+  font-size: var(--font-size-small-title);
+  color: var(--color-small-title);
+  font-weight: 500;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-clamp: 2;
+}
+
+.root:hover .title h2 {
+  text-decoration: underline;
+  color: var(--color-small-title);
+}
+
+.desc p {
+  font-size: var(--font-size-text);
+  color: var(--color-text);
+  margin-top: 0.3rem;
+}

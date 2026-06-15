@@ -1,0 +1,23 @@
+.root {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.root h4 {
+  color: var(--color-text);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.root a {
+  color: var(--color-small-title);
+  font-weight: 700;
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+.root a:hover {
+  text-decoration: underline;
+}

@@ -1,0 +1,40 @@
+.item {
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  padding: 16px 12px;
+  transition: all 0.3s;
+  font-size: var(--font-size-text);
+  border-radius: 5px;
+  background-color: var(--color-background-sidebar);
+  color: var(--color-text);
+}
+
+.item:hover {
+  color: var(--color-main);
+}
+
+.item:active {
+  transform: scale(0.95);
+  background-color: var(--color-text-active);
+}
+
+.active {
+  background-color: var(--color-text-active);
+  color: var(--color-main);
+  font-size: 20px;
+}
+
+.icon {
+  color: var(--color-text);
+  margin-right: 5px;
+  font-size: var(--font-size-text);
+}
+
+.activeIcon {
+  color: var(--color-main);
+}

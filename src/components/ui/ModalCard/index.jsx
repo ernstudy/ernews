@@ -1,7 +1,8 @@
 import { ArrowOutward, Close, Launch } from "@mui/icons-material";
 import React from "react";
-import ImageNotFound from "./image-notfound/ImageNotFound";
-import { noAvailableData } from "../../utils/no-available-data";
+import ImageNotFound from "../image-notfound/ImageNotFound";
+import styles from "./ModalCard.module.css";
+import { noAvailableData } from "../../../utils/no-available-data";
 
 export default function ModalCard({ props }) {
   const { openModal, setOpenModal, modalData } = props;
@@ -22,34 +23,34 @@ export default function ModalCard({ props }) {
     setOpenModal(!openModal);
   };
   return (
-    <div className={openModal ? "modal show-modal" : "modal"}>
-      <div className="modal-container">
-        <div className="modal-close" onClick={closeModal}>
-          <Close className="modal-close-icon" />
+    <div className={`${styles.modal} ${openModal ? styles.show : ""}`}>
+      <div className={styles.container}>
+        <div className={styles.close} onClick={closeModal}>
+          <Close className={styles.closeIcon} />
         </div>
-        <div className="modal-image">
+        <div className={styles.image}>
           <img
             src={modalData?.image ?? noAvailableData.image}
             alt={modalData?.title}
           />
         </div>
 
-        <div className="modal-title">
+        <div className={styles.title}>
           <h2>{modalData?.title || noAvailableData.title}</h2>
         </div>
 
-        <div className="modal-source">
+        <div className={styles.source}>
           <span>Source: {modalData.source?.name || noAvailableData.autor}</span>
           {/* <span>{modalData?.publishedAt}</span> */}
         </div>
-        <div className="modal-description">
+        <div className={styles.desc}>
           <p>{modalData?.content || noAvailableData.description}</p>
         </div>
-        <div className="modal-button">
+        <div className={styles.button}>
           <a href={modalData?.url} target="_blank" rel="noopener noreferrer">
             Read more
             <ArrowOutward
-              className="modal-button-icon"
+              className={styles.btnIcon}
               fontSize="medium"
               sx={{
                 verticalAlign: "middle",

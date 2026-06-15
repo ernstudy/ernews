@@ -1,0 +1,46 @@
+.root {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  overflow: hidden;
+}
+
+.root input {
+  width: 100%;
+  background-color: var(--color-background-secondary);
+  border: none;
+  border-radius: 12px;
+  padding: 8px;
+  font-size: var(--font-size-text);
+  transition: all 0.5s;
+  box-shadow: 0 0 4px -2px;
+  color: var(--color-text);
+  overflow: hidden;
+}
+
+.root input:focus {
+  background-color: var(--color-text-active);
+}
+
+.btn {
+  background-color: var(--color-main);
+  top: 50%;
+  transform: translatey(-50%);
+  cursor: pointer;
+  position: absolute;
+  right: 0;
+  height: 100%;
+  border-radius: 0 12px 12px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--color-gray-100);
+  border: none;
+  font-size: var(--font-size-item);
+  padding: 0 7px;
+  transition: all 0.05s;
+}
+
+.btn:active {
+  font-size: clamp(16.5px, 2.5vw, 18.5px);
+}

@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
-import { NewsContext } from "../../context/NewsContext";
+import { NewsContext } from "../../../context/NewsContext";
+import styles from "./VerticalCard.module.css";
 
 export default function VerticalCard({ props }) {
   const { news } = useContext(NewsContext);
@@ -13,14 +14,14 @@ export default function VerticalCard({ props }) {
     <>
       {selectedData.map((data, idx) => (
         <div
-          className="vertical_cards"
+          className={styles.root}
           onClick={() => handleClick(data)}
           key={idx}
         >
-          <div className="vertical_cards-image">
+          <div className={styles.img}>
             <img src={data.image} alt={data.title} />
           </div>
-          <div className="vertical_cards-title">
+          <div className={styles.title}>
             <h2>{data.title}</h2>
           </div>
         </div>

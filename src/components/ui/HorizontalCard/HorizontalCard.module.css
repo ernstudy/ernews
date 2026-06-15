@@ -1,0 +1,34 @@
+.root {
+  width: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.img {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.img img {
+  width: 100%;
+  object-fit: cover;
+  height: 100%;
+}
+
+.title h2 {
+  font-size: var(--font-size-small-title);
+  color: var(--color-small-title);
+  font-weight: 500;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-clamp: 2;
+}
+
+.root:hover .title h2 {
+  text-decoration: underline;
+  color: var(--color-small-title);
+}

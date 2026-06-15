@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
-import { NewsContext } from "../../context/NewsContext";
-import ImageNotFound from "./image-notfound/ImageNotFound";
-import { noAvailableData } from "../../utils/no-available-data";
+import { NewsContext } from "../../../context/NewsContext";
+import ImageNotFound from "../image-notfound/ImageNotFound";
+import { noAvailableData } from "../../../utils/no-available-data";
+import styles from "./BigCard.module.css";
 
 export default function BigCard({ props }) {
   const { news } = useContext(NewsContext);
@@ -14,8 +15,8 @@ export default function BigCard({ props }) {
   };
 
   return (
-    <div className="big_card" onClick={handleClick}>
-      <div className="big_card-image">
+    <div className={styles.root} onClick={handleClick}>
+      <div className={styles.img}>
         {cardData ? (
           <img
             src={cardData?.image}
@@ -25,13 +26,13 @@ export default function BigCard({ props }) {
           <ImageNotFound />
         )}
       </div>
-      <div className="big_card-title">
+      <div className={styles.title}>
         {cardData ? (
           <h2>{cardData?.title}</h2>
         ) : (
           <h2>{noAvailableData.title}</h2>
         )}
-        <div className="big_card-description">
+        <div className={styles.desc}>
           {cardData ? (
             <p>{cardData?.description}</p>
           ) : (
