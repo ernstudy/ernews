@@ -38,4 +38,9 @@
   font-size: var(--font-size-text);
   color: var(--color-text);
   margin-top: 0.3rem;
+
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
