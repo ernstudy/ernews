@@ -52,12 +52,12 @@ export default function HeaderComponent() {
 
   return (
     <header>
-      <div className="header-container">
+      <div className={styles.header}>
         <Box sx={{ display: { xs: "flex", md: "none" }, justifySelf: "start" }}>
           <LogoApp />
         </Box>
 
-        <nav>
+        <nav className={styles.nav}>
           <Box
             sx={{
               display: { xs: "none", sm: "block" },
@@ -69,15 +69,18 @@ export default function HeaderComponent() {
           </Box>
 
           {/* nav bar icons */}
-          <div className="navbar_icons">
-            <div id="lang-selector" onClick={() => setIsClicked(!isClicked)}>
-              <div className="lang-selector-item navbar_icons-box">
+          <div className={styles.icons}>
+            <div
+              className={styles.langSelector}
+              onClick={() => setIsClicked(!isClicked)}
+            >
+              <div className={`${styles.langItem} ${styles.navBox}`}>
                 {userPreferences.language}
-                <ArrowDropDown className="navbar_icons-box-icon" />
+                <ArrowDropDown className={styles.navBoxIcon} />
               </div>
 
               <div
-                className="options"
+                className={styles.options}
                 style={{ display: isClicked ? "flex" : "none" }}
               >
                 {languages.map((language, idx) => (
@@ -86,7 +89,7 @@ export default function HeaderComponent() {
                     onClick={() => selectLanguage(language.code, idx)}
                     className={
                       isID == idx || userPreferences.language == language.code
-                        ? "selected"
+                        ? styles.selected
                         : ""
                     }
                   >
@@ -98,23 +101,23 @@ export default function HeaderComponent() {
 
             {/* mode theme  */}
             <div
-              className="mode_selector navbar_icons-box"
+              className={`${styles.mode} ${styles.navBox}`}
               onClick={toggleTheme}
             >
               {theme == "light" ? (
-                <ModeNightSharp className="navbar_icons-box-icon" />
+                <ModeNightSharp className={styles.navBoxIcon} />
               ) : (
-                <LightMode className="navbar_icons-box-icon" />
+                <LightMode className={styles.navBoxIcon} />
               )}
             </div>
 
             {/* menu  */}
             <Box sx={{ display: { xs: "block", md: "none" } }}>
               <div
-                className="menu navbar_icons-box"
+                className={`${styles.menu} ${styles.navBox}`}
                 onClick={() => setOpenMenu(true)}
               >
-                <Menu className="navbar_icons-box-icon" />
+                <Menu className={styles.navBoxIcon} />
               </div>
             </Box>
           </div>

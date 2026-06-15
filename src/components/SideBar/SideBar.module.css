@@ -1,0 +1,18 @@
+.root {
+  width: 250px;
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  height: 100vh;
+  background-color: var(--color-background-sidebar);
+  padding: 1.5rem 24px;
+}
+
+.navList {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  width: 100%;
+  margin-top: 1.5rem;
+}

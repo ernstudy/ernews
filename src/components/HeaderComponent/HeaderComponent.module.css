@@ -10,3 +10,75 @@
   align-items: center;
   gap: 1rem;
 }
+
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.navBox {
+  background-color: var(--color-background-secondary);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.navBoxIcon {
+  color: var(--color-text);
+}
+
+.navBox:active {
+  transform: scale(1.1);
+  background-color: var(--color-text-active);
+}
+
+.langSelector {
+  position: relative;
+  z-index: 999;
+}
+
+.langItem {
+  color: var(--color-text);
+  text-transform: uppercase;
+  font-size: clamp(14px, 2.5vw, 16px);
+}
+
+.options {
+  cursor: pointer;
+  background-color: var(--color-gray-700);
+  color: var(--color-gray-100);
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 40px;
+  left: -1.5rem;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px -10px var(--color-gray-900);
+}
+
+.options span {
+  padding: 10px 15px;
+}
+
+.options span:hover {
+  background-color: var(--color-gray-200);
+  color: var(--color-large-title);
+  width: 100%;
+}
+
+.selected {
+  background-color: var(--color-gray-200);
+  color: var(--color-large-title);
+}
+
+.mode {
+}
+
+.menu {
+}

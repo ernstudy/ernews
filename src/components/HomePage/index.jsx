@@ -1,13 +1,13 @@
 import { Container } from "@mui/material";
 import React, { useState } from "react";
-import HeaderComponent from "./HeaderComponent";
-import HorizontalCard from "./ui/HorizontalCard";
-import BigCard from "./ui/BigCard";
-import SmallCard from "./ui/SmallCard";
-import VerticalCard from "./ui/VerticalCard";
-import MainCard from "./ui/MainCard";
-import ModalCard from "./ui/ModalCard";
-import FooterComponent from "./FooterComponent";
+import HeaderComponent from "../HeaderComponent";
+import HorizontalCard from "../ui/HorizontalCard";
+import BigCard from "../ui/BigCard";
+import SmallCard from "../ui/SmallCard";
+import VerticalCard from "../ui/VerticalCard";
+import MainCard from "../ui/MainCard";
+import ModalCard from "../ui/ModalCard";
+import FooterComponent from "../FooterComponent";
 import HomeLayout from "./HomeLayout";
 
 export default function HomePage() {
@@ -26,7 +26,12 @@ export default function HomePage() {
   };
   return (
     <Container maxWidth="md">
-      <HomeLayout />
+      <HomeLayout
+        showModal={showModal}
+        openModal={openModal}
+        setOpenModal={setOpenModal}
+        modalData={modalData}
+      />
     </Container>
   );
 }
