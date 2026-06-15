@@ -13,11 +13,12 @@ import {
   Nightlight,
   Search,
 } from "@mui/icons-material";
-import LogoApp from "./ui/LogoApp";
+import LogoApp from "../ui/LogoApp";
 import { Box, Drawer } from "@mui/material";
-import SearchBar from "./ui/SearchBar";
-import SideBar from "./SideBar";
-import { NewsContext } from "../context/NewsContext";
+import SearchBar from "../ui/SearchBar";
+import SideBar from "../SideBar";
+import styles from "./HeaderComponent.module.css";
+import { NewsContext } from "../../context/NewsContext";
 
 export default function HeaderComponent() {
   const { userPreferences, setUserPreferences, theme, toggleTheme } =
