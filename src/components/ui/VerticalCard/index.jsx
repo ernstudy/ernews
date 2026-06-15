@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { NewsContext } from "../../../context/NewsContext";
 import styles from "./VerticalCard.module.css";
+import ImageNotFound from "../image-notfound/ImageNotFound";
+import { noAvailableData } from "../../../utils/no-available-data";
 
 export default function VerticalCard({ props }) {
   const { news } = useContext(NewsContext);
@@ -19,7 +21,10 @@ export default function VerticalCard({ props }) {
           key={idx}
         >
           <div className={styles.img}>
-            <img src={data.image} alt={data.title} />
+            <img
+              src={data?.image ?? noAvailableData.image}
+              alt={data.title ?? noAvailableData.title}
+            />
           </div>
           <div className={styles.title}>
             <h2>{data.title}</h2>
